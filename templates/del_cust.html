@@ -1,0 +1,12 @@
+{% extends 'cus_reg.html' %}
+
+{%block title%}
+    Customer Delete
+{% endblock %}
+
+{% block form %}
+<form method='POST'>
+    <input type="text" name='ssnid' placeholder="Enter Customer SSN Id">
+    <input type="submit" value="Delete">
+</form>
+{% endblock form %}

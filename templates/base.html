@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/stylesheet.css')}}">
+    <script src="{{url_for('static',filename='js/main_js.js')}}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&display=swap" rel="stylesheet"> 
+    <title>Test</title>
+    {% block headcontent %}
+        <style>
+            main .welcome{
+                min-height: 80vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            main .welcome h1{
+                font-family: 'Cinzel', serif;
+                color: rgba(0, 31, 63, 0.815);
+                font-size: 90px;
+            }
+        </style>
+    {% endblock headcontent %}
+</head>
+<body>
+    <header>
+        <!-- <img src="temp1.png" alt="Logo" id="logo"> -->
+        <span>My Website</span>
+        {% block header %}
+            <button type="button" class="btn btn-primary" onclick='document.location="login"'>Login</button>
+        {% endblock header %}
+    </header>
+    {% block nav%}
+    {% endblock nav%}
+    <main>
+        {% block maincontent %}
+          <div class="welcome">
+                <marquee><h1>Welcome to our Website</h1></marquee>
+          </div>  
+        {% endblock maincontent %}
+    </main>
+    <footer>
+        <span id=footer>made by team IT</span>
+    </footer>
+</body>
+</html>

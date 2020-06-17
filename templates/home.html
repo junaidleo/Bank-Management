@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block headcontent %}
+{{super()}}    
+<style>
+        main .welcome{
+            min-height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav .drop{
+            display: inline-block;
+            cursor: pointer;
+        }
+        nav ul li .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+          }
+          
+        nav .drop:hover .dropdown-content {
+            display: block;
+          } 
+    </style>
+{% endblock headcontent %}
+{% block nav%}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item drop">
+          <span class="nav-link">Customer Management &#9662</span>
+          <div class="dropdown-content">
+            <a href="{{url_for('reg')}}">Create Customer</a><br>
+            <a href="{{url_for('update')}}">Update Customer</a><br>
+            <a href="{{url_for('delete')}}">Delete Customer</a><br>
+            <a href="{{url_for('search')}}">Search Customer</a><br>
+          </div>
+        </li>
+        <li class="nav-item drop">
+            <span class="nav-link">Account Management &#9662</span>
+            <div class="dropdown-content">
+                <a href="{{url_for('acc_cre')}}">Create Account</a><br>
+                <a href="{{url_for('acc_del')}}">Delete Account</a><br>
+                <a href="{{url_for('deposit')}}">Deposit Money</a><br>
+                <a href="{{url_for('withdraw')}}">Withdraw Money</a><br>
+                <a href="{{url_for('transfer')}}">Transfer Money</a><br>
+                <a href="{{url_for('search')}}">Search Customer Account</a><br>
+              </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+          </li>
+      </ul>
+    </div>
+  </nav>  
+{% endblock nav%}
+{%block header%}
+{%endblock header%}
+{%block maincontent%}
+<div class="welcome">
+    <h1>Welcome</h1>
+</div>
+{%endblock%}

@@ -1,0 +1,19 @@
+{% extends "search.html" %}
+{% block title %}
+    Money Withdraw
+{% endblock title %}
+{% block form %}
+<form method="POST" class='search'>
+        <table>
+            <tr>
+                <th colspan="2"><input type="text" name="cus_id" placeholder="Enter Customer ID" ></th>
+            </tr>
+            <tr>
+                <th colspan="2"><input type="text" name="withdraw" placeholder="Enter Withdrawn Amount"></th>
+            </tr>
+            <tr>
+                <th><input type="submit" value="Submit"></th>
+            </tr>
+        </table>
+</form>
+{% endblock form %}

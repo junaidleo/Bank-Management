@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% block headcontent %}
+<style>
+section{
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+}
+section .outerbox{
+    position: relative;
+    width: 400px;
+    height: 300px;
+    background: #fff;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, .1);
+}
+section .outerbox .login{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+section .outerbox .login .formbx{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    transition: .5s;
+}
+section .outerbox .login .title{
+    background-color: rgba(65, 105, 225, 0.664);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:20%;
+}
+section .outerbox .login .title h2{
+    color: rgb(236, 236, 236);
+    position:absolute;
+    transform: rotate(270deg);
+    font-size: 25px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-align: center; 
+    width: 100%;
+}
+section .outerbox .login .formbx form input{
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    background: #f5f5f5;
+    color: rgb(83, 80, 80);
+    border: none;
+    margin: 8px 0 ;
+    padding-left: 20px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border-radius: 20px;
+    transition:background .3s;
+}
+section .outerbox .login .formbx form input[type="submit"],input[type="reset"]{
+    min-width: 100px;
+    max-width: 150px;
+    margin-left: 13%;
+    text-align: center;
+    padding-left: 0;
+    background: #677eff;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+section .outerbox .login .formbx form input:focus{
+    background: white;
+    color:black;
+    border:2px solid #e9e6e6;
+}
+
+</style>
+{% endblock headcontent %}
+{% block header %}
+
+{% endblock header %}
+
+{% block maincontent %}
+    {% for mesg in get_flashed_messages() %}
+        <div class="alert alert-warning" id="message">
+            <button type="button" class="close" data-dismiss="alert" onclick=message()>&times;</button>
+                {{ mesg }}
+        </div>
+    {% endfor %}
+    <section>
+        <div class="outerbox">
+            <div class="login">
+                <div class='title'>
+                    <h2>{% block title %}
+                        Login
+                    {% endblock title %}</h2>
+                </div>
+                <div class="formbx">
+                         {% block form %}
+                        <form method="POST">
+                            <input type="text" name="username" placeholder="Username" value='admin' required="required"><br>
+                            <input type="password" name="password" placeholder="Password" value='admin' required="required"><br>
+                            <input type="submit" value="Login">
+                        </form>
+                        {% endblock form %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock maincontent %}

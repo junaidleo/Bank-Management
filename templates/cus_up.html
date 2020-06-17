@@ -1,0 +1,72 @@
+{% extends "cus_reg.html" %}
+{% block headcontent %}
+    {{super()}}
+    <style>
+        section .outerbox{
+            width:500px;
+            height:550px;
+        }
+        section .outerbox .login .formbx{
+            display: block;
+            overflow: scroll;
+        }
+        section .outerbox .login .formbx form{
+            margin-top: -30px;
+        }
+        #reset{
+            min-width: 100px;
+            max-width: 150px;
+            margin-left: 10px;
+        }
+    </style>
+{% endblock headcontent %}
+{% block title %}
+    Customer Updation Page
+{% endblock title %}
+{% block form %}
+<form method="POST" class='search'>
+    <table>
+        <tr>
+            <td colspan="2"><input type="text" name="ssn_id" placeholder="Enter SSN Id" ></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Search"></td>
+        </tr>
+        {%if temp%}
+        <tr>
+            <th><label class='ssn'>SSN Id</label></th>
+            <th>{{ temp.ssn_id }}</th>
+        </tr>
+        <tr>
+            <th><label>Customer Id</label></th>
+            <th>{{ temp.cust_id }}</th>
+        </tr>
+        <tr>
+            <th><label>Customer Name</label></th>
+            <th>{{temp.cust_name}}</th>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text" name="name" placeholder="Enter New Name" ></td>
+        </tr>
+        <tr>
+            <th><label>Customer Address</label></th>
+            <th>{{temp.cust_add}}</th>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text" name="add" placeholder="Enter New Address" ></td>
+        </tr>
+        <tr>
+            <th><label>Customer Age</label></th>
+            <th>{{temp.cust_age}}</th>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text" name="age" placeholder="Enter New Age"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Update"></td>
+            <td><input type="reset" value="Reset" id="reset"></td>
+        </tr>
+        {%endif%}
+    </table> 
+</form>
+{% endblock form %}

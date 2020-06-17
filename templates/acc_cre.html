@@ -1,0 +1,16 @@
+{% extends 'cus_reg.html' %}
+{%block title%}
+    Create Customer Account
+{% endblock %}
+{% block form %}
+    <form method="POST">
+        <input type="text" name='cusid' placeholder="Enter Customer Id">
+        <select class="custom-select selection" name="acc_type" >
+            <option selected>Select Account Type</option>
+            <option value="Current">Current</option>
+            <option value="Savings">Savings</option>
+        </select>
+        <input type="text" name="dept_amt" placeholder="Deposit Amount">
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

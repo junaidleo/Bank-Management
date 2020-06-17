@@ -1,0 +1,22 @@
+{% extends "search.html" %}
+{% block title %}
+    Money Deposit
+{% endblock title %}
+{% block form %}
+<form method="POST" class='search'>
+        <table>
+            <tr>
+                <th colspan="2"><input type="text" name="cus_id1" placeholder="Enter Source Customer ID" ></th>
+            </tr>
+            <tr>
+                <th colspan="2"><input type="text" name="cus_id2" placeholder="Enter Target Customer ID" ></th>
+            </tr>
+            <tr>
+                <th colspan="2"><input type="text" name="transfer" placeholder="Enter Transfer Amount"></th>
+            </tr>
+            <tr>
+                <th><input type="submit" value="Submit"></th>
+            </tr>
+        </table>
+</form>
+{% endblock form %}

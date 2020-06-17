@@ -1,0 +1,63 @@
+{% extends "cus_reg.html" %}
+{% block headcontent %}
+    {{super()}}
+    <style>
+        section .outerbox{
+            width:500px;
+            height:550px;
+        }
+        section .outerbox .login .formbx{
+            display: block;
+            overflow: scroll;
+        }
+        section .outerbox .login .formbx form{
+            margin-top: -30px;
+        }
+        section .outerbox .login .formbx form table, tr th{
+            margin-top:30px;
+            padding-top: 10px;
+            padding-right: 30px;
+        }
+    </style>
+{% endblock headcontent %}
+{% block title %}
+    Search Customer
+{% endblock title %}
+{% block form %}
+<form method="POST" class='search'>
+        <input type="text" name="ssn_id" placeholder="Enter SSN ID" >
+        <input type="submit" value="Search"></td>
+        {%if temp%}
+        <table>
+        <tr>
+            <th><label class='ssn'>SSN Id</label></th>
+            <th>{{ temp.ssn_id }}</th>
+        </tr>
+        <tr>
+            <th><label>Customer Id</label></th>
+            <th>{{ temp.cust_id }}</th>
+        </tr>
+        <tr>
+            <th><label>Customer Name</label></th>
+            <th>{{temp.cust_name}}</th>
+        </tr>
+        <tr>
+            <th><label>Customer Address</label></th>
+            <th>{{temp.cust_add}}</th>
+        </tr>
+        <tr>
+            <th><label>Customer Age</label></th>
+            <th>{{temp.cust_age}}</th>
+        </tr>
+        <tr>
+            <th><label>Customer Account Type</label></th>
+            <th>{{temp.acc_type}}</th>
+        </tr>
+        <tr>
+            <th><label>Customer Balance</label></th>
+            <th>{{"%.2f"|format(temp.dep_amt)}}</th>
+        </tr>
+        </table> 
+        {%endif%}
+</form>
+{% endblock form %}

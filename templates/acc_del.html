@@ -1,0 +1,10 @@
+{% extends 'cus_reg.html' %}
+{%block title%}
+    Delete Customer Account
+{% endblock %}
+{% block form %}
+    <form method="POST">
+        <input type="text" name='cust_id' placeholder="Enter Customer Id">
+        <input type="submit" value="Delete Account">
+    </form>
+{% endblock %}
